@@ -25,9 +25,9 @@ module.exports = {
         comment: '0:admin,1:user'
       },
       status: {
-          type: Sequelize.SMALLINT,
+        type: Sequelize.SMALLINT,
         allowNull: false,
-        comment: '0:inactive,1:active' 
+        comment: '0:inactive,1:active'
       },
       created_at: {
         type: Sequelize.DATE

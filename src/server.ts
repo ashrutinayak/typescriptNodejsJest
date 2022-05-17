@@ -18,8 +18,8 @@ export async function createServer(): Promise<core.Express> {
   // configure CORS
   server.use(cors(environmentConfig.corsConfig))
   // Body parsing
-  // server.use(express.json({ limit: '50mb' }))
-  // server.use(express.urlencoded({ limit: '50mb', extended: true }))
+  server.use(express.json({ limit: '50mb' }))
+  server.use(express.urlencoded({ limit: '50mb', extended: true }))
   // // static folder
   // server.use('/public', express.static('public'))
   // api routes
