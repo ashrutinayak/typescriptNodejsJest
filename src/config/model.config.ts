@@ -12,7 +12,6 @@ modelConfig.Sequelize = Sequelize
 const verifyDbConnection = async () => {
   try {
     await modelConfig.sequelize.authenticate()
-    console.log('>> DB Connected Successfully')
   } catch (error) {
     process.exit(1)
   }

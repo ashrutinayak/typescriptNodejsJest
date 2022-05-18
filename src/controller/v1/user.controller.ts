@@ -6,36 +6,36 @@ import messageConstant from "../../constants/message.constant";
 const getUser = async (req: Request, res: Response) => {
   try {
     const user = await model.user.findAll()
-    res.successResponse(httpStatusConstant.OK, messageConstant.listUser, user)
+    res.status(httpStatusConstant.OK).json({ message: messageConstant.listUser, user });
   } catch (error) {
-    res.failResponse(httpStatusConstant.BAD_REQUEST, error)
+    res.status(httpStatusConstant.BAD_REQUEST).send(error)
   }
 }
 const createUser = async (req: Request, res: Response) => {
   try {
-    console.log(req)
-    const { body } = req
-    const { name, email, type, password } = body as {
-      name: string
-      email: string
+      const { body } = req
+      const { name, email, type, password } = body as {
+          name: string
+          email: string
       type: number
       password: string
     }
     const user = await model.user.create({
-      name,
-      email,
-      password,
-      type,
-      status: 1
+        name,
+        email,
+        password,
+        type,
+        status: 1
     })
-    res.successResponse(httpStatusConstant.OK, messageConstant.createUser, user)
-  } catch (error) {
+    res.status(httpStatusConstant.OK).json({ message: messageConstant.createUser, user})
+} catch (error) {
     console.log(error)
-    res.failResponse(httpStatusConstant.BAD_REQUEST, error)
-  }
+    res.status(httpStatusConstant.BAD_REQUEST).send(error)
+}
 }
 const updateUser = async (req: Request, res: Response) => {
-  try {
+    try {
+    // console.log("req",req)
     const { body, params } = req
     const user = await model.user.update(
       {
@@ -47,9 +47,9 @@ const updateUser = async (req: Request, res: Response) => {
         where: { id: params.id }
       }
     )
-    res.successResponse(httpStatusConstant.OK, messageConstant.updateUser, user)
+    res.status(httpStatusConstant.OK).json({ message: messageConstant.updateUser, user})
   } catch (error) {
-    res.failResponse(httpStatusConstant.BAD_REQUEST, error)
+    res.status(httpStatusConstant.BAD_REQUEST).send(error)
   }
 }
 const deleteUser = async (req: Request, res: Response) => {
@@ -58,9 +58,9 @@ const deleteUser = async (req: Request, res: Response) => {
     const user = await model.user.destroy({
       where: { id: params.id }
     })
-    res.successResponse(httpStatusConstant.OK, messageConstant.deleteUser, user)
+    res.status(httpStatusConstant.OK).json({ message: messageConstant.deleteUser, user})
   } catch (error) {
-    res.failResponse(httpStatusConstant.BAD_REQUEST, error)
+    res.status(httpStatusConstant.BAD_REQUEST).send(error)
   }
 }
 

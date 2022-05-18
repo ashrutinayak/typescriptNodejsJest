@@ -50,7 +50,3 @@ export async function startServer(
   return expressServer
 }
 
-// process.on('unhandledRejection', (error: Error) => {
-//   logger.error(error)
-//   process.exit(1)
-// })
