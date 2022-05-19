@@ -35,7 +35,6 @@ const createUser = async (req: Request, res: Response) => {
 }
 const updateUser = async (req: Request, res: Response) => {
     try {
-    // console.log("req",req)
     const { body, params } = req
     const user = await model.user.update(
       {

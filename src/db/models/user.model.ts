@@ -17,7 +17,7 @@ const userModel = (sequelize: any, DataTypes: any) => {
         allowNull: false
       },
       password: {
-        type: DataTypes.SMALLINT,
+        type: DataTypes.STRING,
         allowNull: false
       },
       type: {
