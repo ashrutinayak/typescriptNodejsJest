@@ -12,7 +12,11 @@ const messageConstant = {
   expiredToken: 'Token has been expired.',
   generalException:
     'The server encountered an error and could not complete your request.',
-  loginFail: 'Username or Password are invalid.'
+  loginFail: 'Username or Password are invalid.',
+  createUser:'User Created.',
+  listUser:'User Listed.',
+  updateUser:'User Updated.',
+  deleteUser:'User Deleted.'
 }
 
 export default messageConstant
